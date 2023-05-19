@@ -1,0 +1,110 @@
+* { /* Reset box */
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+body {
+  font-family: 'montseratt', sans-serif; /* Change font */
+}
+
+.app { /* Loading a BG image, lets start with default of the cold image in our src --> 'assets' folder */
+  background-image: url('./assets/cold-bg.jpg'); 
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.5s ease-out;
+}
+
+.app.warm { /* Then lets load warm BG image */
+  background-image: url('./assets/warm-bg.jpg');;
+}
+
+main {
+  min-height: 100vh; /* 'vh' represents the 'viewport-percentage' length unit based on the browser default viewport size, 100% = 100% of viewport pixel width */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75)); /* vertical gradient from light to dark */
+  padding: 25px; /* For everything: BG image, searchbar, etc */
+}
+
+.search-box { /* className: 'search-box', aka the content window */
+  width: 100%;
+  margin: 0 0 75px;
+}
+
+.search-box .search-bar { /* className: 'search-bar' aka where the placeholder text says 'Search' */
+  display: block;
+  width: 100%;
+  padding: 15px;
+
+  /* Searchbar Resets: */
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+
+  background-color: rgba(255,255,255,0.5);   /* Set color to white with an alpha value of 0.5, so it looks a little faded / see-through */ 
+  /* Note: 0 alpha represents full transparency (completely invisible) and 1 represents full opacity (completely solid) */
+  border-radius: 0px 0px 16px 16px; /* This will make our search box bar have rounded bottom corners */
+  /* Then lets push it up so we avoid the top unrounded corners of the search bar box */
+  margin-top: -25px; /* This will make the box sit at very top of page, ahead of 25px we have accross the main */
+
+  box-shadow: 0px 5px rgba(0,0,0,0.2); /* This will make a shadow border around the top and bottom of our box, so basically will see only at bottom since we pushed the box to sit above margin-top */
+  border: 1px solid rgb(0, 0, 0, 0.3); /* Add a subtle black (0,0,0,0.3) border outline (0.3 = 70% transparent, 30% opaque) around the box too */
+
+  /* The font when we type */
+  color: #313131;
+  font-size: 20px;
+  
+  /* Hover animation time settings */
+  transition: 0.4s ease;
+}
+
+  /* Hover animation color settings: change to bright white when hovered over */
+  .search-box .search-bar:hover {  /* Hover = when you hover over, focus = when you click, i chose hover */
+    background-color: rgba(255,255,255,0.75);
+  }
+
+  .location-box .location {  /* Add styling to the Location text in our weather app [Vancouver, BC] */
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 3px 3px rgba(50,50,70,0.5);
+  }
+
+  .location-box .date { /* Add styling to Date text in our weather app [Sunday, May 14, 2023] */
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 2px 2px rgba(50,50,70,0.5);
+  }
+
+  .weather-box { /* Add styling to overall weather box [aka center the temp value] */
+    text-align: center;
+  }
+
+  .weather-box .temp { /* Add styling to weather box: 'temp' field [15°C] */
+    position: relative;
+    display: inline-block;
+    margin: 30px auto;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 16px;
+    
+    padding: 15px 25px;
+
+    color: #FFF;
+    font-size: 102px;
+    font-weight: 900;
+
+    text-shadow: 2px 2px rgba(50,50,70,0.5);
+    text-align: center;
+    box-shadow: 3px 6px rgba(0,0,0,0.2);
+  }
+
+  .weather-box .weather { /* Add styling to weather box: 'weather'' field [Sunny] */
+    color: #FFF;
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  }
